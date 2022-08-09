@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import com.gildedrose.updaters.AgedBrieUpdater;
 import com.gildedrose.updaters.BackstagePassesUpdater;
-import com.gildedrose.updaters.GeneralItemUpdater;
+import com.gildedrose.updaters.NormalItemUpdater;
 import com.gildedrose.updaters.SulfurasUpdater;
 
 class GildedRose {
@@ -31,7 +31,7 @@ class GildedRose {
             return new BackstagePassesUpdater();
         }
         else {
-            return new GeneralItemUpdater();
+            return new NormalItemUpdater();
         }
       
     }
