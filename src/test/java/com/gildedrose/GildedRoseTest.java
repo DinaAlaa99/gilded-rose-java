@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 class GildedRoseTest {
 
   @Test
-  public void at_the_end_of_each_day_system_lowers_both_values_for_every_item() {
+  public void at_the_end_of_each_day_system_lowers_quality_sellin_values_for_every_item() {
     Item[] items = new Item[] { new Item("item", 5, 2) };
     GildedRose app = new GildedRose(items);
 
@@ -127,6 +127,27 @@ class GildedRoseTest {
 
     app.updateQuality();
     assertEquals(-2, app.items[0].sellIn);
+    assertEquals(0, app.items[0].quality);
+  }
+
+  @Test
+  public void conjured_mana_cake_degrade_in_quality_twice_as_fast_as_normal_items() {
+    Item[] items = new Item[] { new Item("Conjured Mana Cake", 10, 10) };
+    GildedRose app = new GildedRose(items);
+
+    app.updateQuality();
+    assertEquals(9, app.items[0].sellIn);
+    assertEquals(8, app.items[0].quality);
+  }
+
+  @Test
+  public void the_quality_of_conjured_mana_cake_item_is_never_negative() {
+    Item[] items = new Item[] { new Item("item", 10, 0) };
+    GildedRose app = new GildedRose(items);
+
+    app.updateQuality();
+
+    assertEquals(9, app.items[0].sellIn);
     assertEquals(0, app.items[0].quality);
   }
 }
