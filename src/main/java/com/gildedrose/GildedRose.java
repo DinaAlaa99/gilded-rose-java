@@ -2,6 +2,7 @@ package com.gildedrose;
 
 import com.gildedrose.updaters.AgedBrieUpdater;
 import com.gildedrose.updaters.BackstagePassesUpdater;
+import com.gildedrose.updaters.ConjuredItemUpdater;
 import com.gildedrose.updaters.NormalItemUpdater;
 import com.gildedrose.updaters.SulfurasUpdater;
 
@@ -29,6 +30,9 @@ class GildedRose {
         }
         else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             return new BackstagePassesUpdater();
+        }
+        else if (item.name.equals("Conjured Mana Cake")) {
+            return new ConjuredItemUpdater();
         }
         else {
             return new NormalItemUpdater();

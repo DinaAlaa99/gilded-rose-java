@@ -18,7 +18,7 @@ public interface GildedRoseUpdater {
       item.quality--;
     }
   }
-  
+
   default void decreaseSellin(Item item) {
     item.sellIn--;
   }
