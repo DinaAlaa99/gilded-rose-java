@@ -139,7 +139,16 @@ class GildedRoseTest {
     assertEquals(9, app.items[0].sellIn);
     assertEquals(8, app.items[0].quality);
   }
+  @Test
+  public void once_the_sell_by_date_has_passed_quality_of_conjured_mana_cake_degrades_twice_as_fast_as_normal_items() {
+    Item[] items = new Item[] { new Item("Conjured Mana Cake", -1, 4) };
+    GildedRose app = new GildedRose(items);
 
+    app.updateQuality();
+
+    assertEquals(-2, app.items[0].sellIn);
+    assertEquals(0, app.items[0].quality);
+  }
   @Test
   public void the_quality_of_conjured_mana_cake_item_is_never_negative() {
     Item[] items = new Item[] { new Item("item", 10, 0) };
